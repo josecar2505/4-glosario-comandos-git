@@ -1,0 +1,346 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario de comandos Git</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="div-1">
+            <h1> Glosario de comandos Git
+            </h1>
+            <table>
+
+                <tr>
+                    <th class="temaPrincipal">Comando</th>
+                    <th class="tema">Descripción</th>
+                    <th class="tema">Parametros</th>
+                    <th class="tema">Ejemplo</th>
+                </tr>
+                <tr>
+                    <th class="separador" colspan="4">GIT Y REPOSITORIOS</th>
+                </tr>
+                <tr>
+                    <th class="tema">git --version</th>
+                    <td>Ver la versión de Git y comprobar si está instalado.</td>
+                    <td>Ninguno</td>
+                    <td>git --version</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git config --global user.name [nombre]</th>
+                    <td>Establecer un nombre que sea identificable para cuando se revise el historial de versiones.</td>
+                    <td>--global, indica que se configura una opción de forma global, user.name, es la clave que se usa
+                        para establecer un nombre que identifica al usuario asociado a Git.</td>
+                    <td>git config --global user.name "John Smith"</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git config --global user.email [email]</th>
+                    <td>Establecer una dirección de correo electrónico que se asociará a cada commit del historial.</td>
+                    <td>--global, indica que se configura una opción de forma global, user.email, es la clave que se usa
+                        para establecer la dirección de correo asociada a Git.</td>
+                    <td>git config --global user.email jogicarrilloru@ittepic.edu.mx</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git init</th>
+                    <td>Inicializar un directorio existente como repositorio Git.</td>
+                    <td>Ninguno</td>
+                    <td>git init</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git clone [url-repository]</th>
+                    <td>Recuperar un repositorio completo desde una ubicación alojada a través de una URL.</td>
+                    <td>[url] Enlace del repositorio remoto que será clonado.</td>
+                    <td>git clone https://github.com/josecar2505/iw2023ittepic.git</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git clone [url] . </th>
+                    <td>Al añadir un punto al final, el clonado se hace en la carpeta donde lanzamos la orden sin crear
+                        una subcarpeta.</td>
+                    <td>[url] Enlace del repositorio remoto que será clonado.</td>
+                    <td>git clone https://github.com/josecar2505/iw2023ittepic.git . </td>
+                </tr>
+
+                <tr>
+                    <th class="separador" colspan="4">ESTADOS Y CONSULTAS</th>
+                </tr>
+
+                <tr>
+                    <th class="tema">git status</th>
+                    <td>Este comando te informa del estado de los archivos de tu proyecto y listará los archivos en
+                        verde o en rojo. Los archivos en verde se han añadido a la preparación pero no se han confirmado
+                        todavía. Los archivos marcados en rojo son aquellos que no han sido añadidos a la preparación.
+                    </td>
+                    <td>Ninguno.</td>
+                    <td>git status</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git log</th>
+                    <td>Muestra todos los commits de la rama actual</td>
+                    <td>Ninguno</td>
+                    <td>git log</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git log --oneline</th>
+                    <td>Muestra una lista de las confirmaciones (commits) en el historial del repositorio.
+                        Cada confirmación se presenta en una sola línea, lo que facilita la lectura y el seguimiento de
+                        las últimas confirmaciones.</td>
+                    <td>--oneline. Indica que se desea ver la salida en una sola línea por confirmación.</td>
+                    <td>git log --oneline</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git checkout [identificador-commit]</th>
+                    <td>Ver un commit mediante su identificador</td>
+                    <td>[identificador-commit] Es el identificador de la confirmación a la que deseas moverte.</td>
+                    <td>git checkout def5678</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git reflog </th>
+                    <td>Lista ordenada de los commits realizados. Este historial nos sirve para deshacer cambios en el
+                        repositorio. </td>
+                    <td>Ninguno.</td>
+                    <td>git reflog</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git checkout --</th>
+                    <td>Volver al estado original. Reemplaza los cambios en tu directorio de trabajo con el último
+                        contenido de HEAD.</td>
+                    <td>Ninguno.</td>
+                    <td>git checkout --</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git commit --amend -m “message”</th>
+                    <td>Se utiliza en Git para realizar una modificación en la confirmación más reciente (la última
+                        confirmación) en tu historial.</td>
+                    <td>--amend: Indica que deseas realizar una modificación a la última confirmación.
+                        -m "message": Permite especificar el nuevo mensaje que deseas asociar a la última confirmación.
+                    </td>
+                    <td>git commit -m "Confirmación inicial con mensaje incorrecto"</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git restore --staged [file-name] </th>
+                    <td>Se utiliza para deshacer cambios de un archivo del área de preparación (staging area) y
+                        volverlos al estado sin preparar (unstaged) en tu directorio de trabajo</td>
+                    <td>--staged: Indica que deseas deshacer los cambios que están en el área de preparación.
+                        file-name: Es el nombre del archivo que deseas quitar del área de preparación.</td>
+                    <td>git restore --staged mi-archivo.txt</td>
+                </tr>
+
+                <tr>
+                    <th class="separador" colspan="4">COMMITS</th>
+                </tr>
+
+
+                <tr>
+                    <th class="tema">git add [file-name]</th>
+                    <td>Agregar el archivo seleccionado al stage. </td>
+                    <td>[file-name]: el nombre del archivo que deseas agregar al área de preparación.</td>
+                    <td>git add archivo1.txt</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git add .</th>
+                    <td>Agregar todos los archivos modificados al stage.</td>
+                    <td>Ninguno.</td>
+                    <td>git add .</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git reset</th>
+                    <td>Deshacer los cambios locales en el estado de un repositorio de Git.</td>
+                    <td>Ninguno.</td>
+                    <td>git reset</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git reset [file-name] </th>
+                    <td>Descartar un archivo del stage.</td>
+                    <td>[file-name]: indica el nombre del archivo que será descartado.</td>
+                    <td>git reset archivo.txt</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git commit -m "[description]"</th>
+                    <td>Crear un commit de los archivos en stage, con una descripción breve</td>
+                    <td>"[description]" </td>
+                    <td>git commit -m "Agregado archivo1.txt y archivo2.txt"</td>
+                </tr>
+
+
+                <tr>
+                    <th class="tema">git commit -am "[description]"</th>
+                    <td>Crear un commit de los archivos en seguimiento, con una descripción breve.</td>
+                    <td>"[description]" </td>
+                    <td>git commit -am "Agregado un nuevo archivo y actualizado archivo existente"
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git push origin [branch]</th>
+                    <td>Subir al repositorio los cambios de la rama [branch]</td>
+                    <td>[branch]: identifica el nombre de la rama.</td>
+                    <td>git push origin main</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git push --force </th>
+                    <td>Ignorar los cambios locales y hacer push</td>
+                    <td>Ninguno.</td>
+                    <td>git push --force</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git push --all</th>
+                    <td>Subir al repositorio todas las ramas</td>
+                    <td>--all indica que deseas empujar todas las ramas locales al control remoto.</td>
+                    <td>git push --all</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git fetch</th>
+                    <td>Traer los commits del repositorio remoto al repositorio local</td>
+                    <td>Ninguno.</td>
+                    <td>git fetch</td>
+                </tr>
+
+                <tr>
+                    <th class="separador" colspan="4">RAMAS</th>
+                </tr>
+
+                <tr>
+                    <th class="tema">git branch</th>
+                    <td>Crear una rama desde la rama actual </td>
+                    <td>[branch-name]: Identifica el nombre de la nueva rama que será creada. </td>
+                    <td>git branch nuevas-caracteristicas</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git branch [branch-name] [initial-branch]</th>
+                    <td>Crear rama a partir de otra rama</td>
+                    <td>[new-branch-name] es el nombre de la nueva rama que deseas crear.
+                        [starting-branch] es la rama desde la cual deseas crear la nueva rama.</td>
+                    <td>git branch caracteristica-nueva desarrollo</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git branch -m [branch-name] [new-branch-name]</th>
+                    <td>Cambiar de nombre una rama</td>
+                    <td>-m especifica que la rama [branch-name] cambiará de nombre a [new-branch-name]</td>
+                    <td>git branch -m experimento nueva-experiencia
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git branch -d [branch-name] </th>
+                    <td>Eliminar una rama</td>
+                    <td>[branch-name] identifica el nombre de la rama que se quiere eliminar y -d especifica que se
+                        trata de una eliminación.</td>
+                    <td>git branch -D feature-branch</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git checkout [branch-name] </th>
+                    <td> Moverse a una rama concreta</td>
+                    <td>[branch-name]: identifica el nombre a la rama a la que se quiere mover.</td>
+                    <td>git checkout feature-branch</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git checkout -b [branch-name]</th>
+                    <td>Crear una rama y moverse a esa rama</td>
+                    <td>-b se usa para crear una nueva rama con el nombre de [branch-name] y cambiar a esa nueva rama.
+                    </td>
+                    <td>git checkout -b nueva-caracteristica </td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git merge [branch-name]</th>
+                    <td> Unir la rama actual con la rama seleccionada</td>
+                    <td>[branch-name] representa el nombre de la rama que deseas fusionar en la rama actual.</td>
+                    <td>git merge feature-branch</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git branch -av </th>
+                    <td>Visualizar las ramas</td>
+                    <td>Ninguno.</td>
+                    <td>git branch -av</td>
+                </tr>
+
+                <tr>
+                    <th class="separador" colspan="4">ETIQUETAS</th>
+                </tr>
+
+                <tr>
+                    <th class="tema">git tag -a [tag-name] -m “Message”</th>
+                    <td>Crear una etiqueta</td>
+                    <td>-a: indica que estás creando una etiqueta anotada. -m "Message": permite especificar un mensaje
+                        descriptivo que se asociará con la etiqueta.</td>
+                    <td>git tag -a v1.0 -m "Versión 1.0: Lanzamiento inicial del proyecto"</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git tag</th>
+                    <td>Mostrar las etiquetas</td>
+                    <td>Ninguno.</td>
+                    <td>git tag</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git show [tag-name]</th>
+                    <td>Mostrar características de una etiqueta en concreto</td>
+                    <td>[tag-name]: nombre de la etiqueta que deseas mostrar.</td>
+                    <td>git show v1.0</td>
+                </tr>
+
+                <tr>
+                    <th class="tema">git push --tags</th>
+                    <td>Subir las etiquetas al repositorio remoto</td>
+                    <td>Ninguno.</td>
+                    <td>git push --tags</td>
+                </tr>
+
+            </table>
+
+            <h2>Conclusión</h2>
+            <p style="text-align: justify;">
+                Los comandos en Git son una parte fundamental para la gestión exitosa de proyectos de
+                desarrollo de software. Su importancia radica en que proporcionan un control total sobre la versión de
+                tu código, permiten colaborar eficazmente con otros miembros del equipo, previenen errores costosos y
+                mejoran la productividad en el flujo de trabajo de desarrollo. Conocer y dominar estos comandos no solo
+                es valioso, sino esencial para cualquier desarrollador o equipo que utilice Git como sistema de control
+                de versiones.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Ingenieria en Sistemas Computacionales
+            <br>
+            Materia: Interfaces Web
+            <br>Alumno: José Giovanni Carrillo Rubio - 19400543
+            <br>
+            Grupo: 5A
+            <br>
+            Tepic, Nayarit a 08 de septiembre de 2023
+            <br>
+        </p>
+    </footer>
+</body>
+
+</html>
